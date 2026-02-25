@@ -1,0 +1,177 @@
+Terraform is an Iac Tool that is use for creating infrastructue on various cloud Plateform
+There is a small Rule to follow for easy Learning. Just Remember this Trick
+<Block> <Parmameters> { Arguments}
+What is Block: In Terraform what we want to do is a Block. like we want to create infrastructue the block is 
+a: Resource : <Parmameters> then we can use the arguments inside the curly braces
+e.g: resource "local" "local_file" {filename = "myfile.txt" 
+									content = "This is my first file via Terraform"
+} 
+When we want to add Provides the block is 
+b: terraform : This Block does not require the Parmameters at all 
+When we want to display output the block is 
+c: Output
+When we want to use variables the block is 
+d: Variable
+When we read the existance infrastructue the block is:
+e: data
+When we 
+Sometimes we don't require parameters. like in case of setting the providers like aws, Azure or Gcp 
+
+
+--------------------------- From Chat Gpt --------------------------
+TERRAFORM BASICS – EASY LEARNING STRUCTURE
+
+Terraform is an IaC (Infrastructure as Code) tool used to create and manage infrastructure on various cloud platforms like AWS, Azure, and GCP.
+
+Simple Rule for Learning Terraform:
+
+<Block Type> "<Label1>" "<Label2>" {
+Arguments
+}
+
+Block = What you want to define
+Arguments = Configuration inside the block
+
+RESOURCE BLOCK (Creates Infrastructure)
+
+This block is used to create infrastructure.
+
+Structure:
+resource "TYPE" "NAME" {
+argument = value
+}
+
+Example:
+resource "local_file" "myfile" {
+filename = "myfile.txt"
+content = "This is my first file via Terraform"
+}
+
+Explanation:
+TYPE = Provider resource type (local_file, aws_instance, etc.)
+NAME = Your logical name (used for reference)
+Arguments = Settings inside {}
+
+TERRAFORM BLOCK (Terraform Settings)
+
+Used to configure Terraform itself.
+
+Structure:
+terraform {
+required_providers {
+aws = {
+source = "hashicorp/aws"
+version = "~> 5.0"
+}
+}
+}
+
+Important:
+This block does NOT take labels.
+It configures:
+
+Required providers
+
+Backend
+
+Required Terraform version
+
+PROVIDER BLOCK (Configure Cloud Provider)
+
+Used to configure provider settings.
+
+Example:
+provider "aws" {
+region = "us-east-1"
+}
+
+Explanation:
+Provider block HAS one label (provider name).
+It defines authentication and region settings.
+
+VARIABLE BLOCK (Input)
+
+Used for input values.
+
+Structure:
+variable "instance_type" {
+type = string
+default = "t2.micro"
+}
+
+Used to make configuration reusable and dynamic.
+
+OUTPUT BLOCK (Display Output)
+
+Used to show values after terraform apply.
+
+Structure:
+output "instance_ip" {
+value = aws_instance.web.public_ip
+}
+
+DATA BLOCK (Read Existing Infrastructure)
+
+Used to fetch existing infrastructure (does NOT create).
+
+Structure:
+data "aws_ami" "latest" {
+most_recent = true
+}
+
+LOCALS BLOCK (Reusable Internal Values)
+
+Used for internal reusable values.
+
+locals {
+environment = "production"
+}
+
+IMPORTANT INTERVIEW POINTS
+
+Terraform reads ALL .tf files in the directory automatically.
+File names do NOT matter, only extension (.tf).
+
+Resource Address Format:
+resource_type.resource_name.attribute
+Example:
+aws_instance.web.public_ip
+
+Terraform Workflow:
+terraform init
+terraform plan
+terraform apply
+terraform destroy
+
+State File:
+Terraform stores infrastructure state in terraform.tfstate.
+This file should NOT be edited manually.
+In real projects, use remote backends (S3 + DynamoDB).
+
+Best Practices for DevOps Interviews:
+
+Always use variables instead of hardcoding values.
+
+Use modules to organize large infrastructure.
+
+Use remote backend for state management.
+
+Lock state file in team environments.
+
+Use version constraints for providers.
+
+Keep separate environments (dev, stage, prod).
+
+Follow naming conventions.
+
+Do not store secrets in plain text.
+
+Use sensitive = true for secrets.
+
+Run terraform fmt before committing code.
+
+Run terraform validate to check syntax.
+
+Golden Interview Line:
+
+"Terraform is declarative, maintains state, and uses providers to manage infrastructure resources across multiple platforms."
