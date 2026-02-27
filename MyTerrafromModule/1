@@ -1,0 +1,5 @@
+resource "aws_s3_bucket" "modBucket"{
+	bucket = "bucket-for-terrafrom-state-locking"
+	tags = {
+	Name = "ModuleBcket"}
+}
