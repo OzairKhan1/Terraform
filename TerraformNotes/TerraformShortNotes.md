@@ -184,3 +184,4 @@ aws_instance.web.public_ip
 | `variable` | Input variables | ✅ Yes (variable name) |
 | `data` | Read existing infrastructure | ✅ Yes (type + name) |
 | `locals` | Internal reusable values | ❌ No |
+
