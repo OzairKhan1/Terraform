@@ -1,26 +1,4 @@
-⚠️ Important Notes
-📁 File Structure
-
-terraform.tf, providers.tf, and backend configuration do NOT need to be in separate files.
-You can keep everything inside main.tf if desired.
-Terraform automatically reads all .tf files in the directory.
-
-📥 How to Check Required Variables
-
-To understand which input variables are required:
-Clone the source repository and review the module files.
-Open the variables.tf file to see:
-Required variables
-Variable types
-Default values (if provided)
-You may also review the root main.tf file to see example values being passed.
-
-📘 Documentation Guidance
-
-In official Terraform modules, required inputs are clearly documented.
-For custom modules, the variables.tf and main.tf files serve as the module documentation.
-✔ Once you provide all required variable values when calling the module, it is ready to use.
-
+⚠️ Important Notes Given at the End of the File.
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 🚀 Terraform AWS Infrastructure Module
@@ -102,3 +80,26 @@ Configure backend
 ```Run terraform plan```
 
 ```Run terraform apply```
+
+⚠️ Important Notes
+📁 File Structure
+
+terraform.tf, providers.tf, and backend configuration do NOT need to be in separate files.
+You can keep everything inside main.tf if desired.
+Terraform automatically reads all .tf files in the directory.
+
+📥 How to Check Required Variables
+
+To understand which input variables are required:
+Clone the source repository and review the module files.
+Open the variables.tf file to see:
+Required variables
+Variable types
+Default values (if provided)
+You may also review the root main.tf file to see example values being passed.
+
+📘 Documentation Guidance
+
+In official Terraform modules, required inputs are clearly documented.
+For custom modules, the variables.tf and main.tf files serve as the module documentation.
+✔ Once you provide all required variable values when calling the module, it is ready to use.
