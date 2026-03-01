@@ -1,3 +1,7 @@
+variable "path_to_public_key" {
+  descriptin = "It is recommended to Create a key and Provide a Key Path"
+  type = string
+}
 variable "ec2_ami_id" {
   description = "Provide you ami id. The default is ubuntu"
   default     = "ami-0b6c6ebed2801a5cb"
@@ -45,4 +49,5 @@ variable "project_name" {
   description = "Project name for resource naming"
   type        = string
 }
+
 
