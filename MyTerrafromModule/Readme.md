@@ -83,7 +83,7 @@ Configure backend
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-⚠️ Important Notes
+⚠️ Important Notes  
 📁 File Structure
 
 terraform.tf, providers.tf, and backend configuration do NOT need to be in separate files.
