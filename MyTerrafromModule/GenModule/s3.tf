@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "tf_state" {
+resource "aws_s3_bucket" "s3-state-lock" {
   bucket = "via-terraform-state-bucket-2026"
 
   tags = {
