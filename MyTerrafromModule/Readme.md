@@ -84,11 +84,13 @@ Configure backend
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 ⚠️ Important Notes  
+  
 📁 File Structure
 
-terraform.tf, providers.tf, and backend configuration do NOT need to be in separate files.
-You can keep everything inside main.tf if desired.
-Terraform automatically reads all .tf files in the directory.
+For proper Terraform state management, it is recommended to first navigate to the backend (bootstrap) directory and run terraform init followed by terraform apply to create the required S3 bucket and DynamoDB table.
+
+Once these backend resources are successfully created, use the same S3 bucket name and DynamoDB table name in the backend configuration block of your main Terraform project.
+After configuring the backend, return to the root directory and run terraform init again to initialize and migrate the state to the remote backend. You can then proceed with terraform apply to manage your infrastructure using the remote state.
 
 📥 How to Check Required Variables
 
@@ -105,3 +107,9 @@ You may also review the root main.tf file to see example values being passed.
 In official Terraform modules, required inputs are clearly documented.
 For custom modules, the variables.tf and main.tf files serve as the module documentation.
 ✔ Once you provide all required variable values when calling the module, it is ready to use.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+**Extra Info**
+terraform.tf, providers.tf, and backend configuration do NOT need to be in separate files.
+You can keep everything inside main.tf if desired.
+Terraform automatically reads all .tf files in the directory.
