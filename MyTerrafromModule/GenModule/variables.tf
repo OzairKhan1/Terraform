@@ -1,5 +1,5 @@
 variable "path_to_public_key" {
-  descriptin = "It is recommended to Create a key and Provide a Key Path"
+  description = "It is recommended to Create a key and Provide a Key Path"
   type = string
 }
 variable "ec2_ami_id" {
@@ -49,5 +49,6 @@ variable "project_name" {
   description = "Project name for resource naming"
   type        = string
 }
+
 
 
