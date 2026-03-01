@@ -1,5 +1,7 @@
+# Either Put the values directly or provide values inside .tfvars which is industrial approach
 module "myModule" {
-  source = "git::https://github.com/OzairKhan1/Terraform.git//MyTerrafromModule/GenModule?ref=dev"
+  # The Module is called from Github Repo (main branch) 
+  source = "git::https://github.com/OzairKhan1/Terraform.git//MyTerrafromModule/GenModule?ref=main"
   environment  = var.environment
   project_name = var.project_name
   path_to_public_key = var.path_to_public_key
@@ -14,3 +16,4 @@ module "myModule" {
     ManagedBy   = "Terraform"
   }
 }
+
