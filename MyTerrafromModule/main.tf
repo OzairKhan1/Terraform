@@ -1,31 +1,16 @@
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "6.34.0"
-    }
-  }
-}
-
-provider "aws" {
-
-        region = "us-east-1"
-}
-
 module "myModule" {
-  source             = "./GenModule"
-  path_to_public_key = "modKey.pub"
+  source = "git::https://github.com/OzairKhan1/Terraform.git//MyTerrafromModule/GenModule?ref=dev"
+  environment  = var.environment
+  project_name = var.project_name
+  path_to_public_key = var.path_to_public_key
+  ec2_type           = var.ec2_type
+  block_storage      = var.block_storage
+  allowed_ports      = var.allowed_ports
+  count_number       = var.count_number
+
   tags = {
-   Name = "Terraform-Instance"
+    Name        = "Demo Instance for ${terraform.workspace}"
     Environment = terraform.workspace
     ManagedBy   = "Terraform"
   }
-  ec2_type      = "t2.small"
-  block_storage = 10
-  allowed_ports = [22, 80, 443, 5000]
-  count_number  = 2
-  
-  s3_name = "via-terraform-state-bucket-2026"
-  dynamodb_name = "my-terraform-state-dynameoDb-2026"
 }
-
