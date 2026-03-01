@@ -89,9 +89,9 @@ In the root configuration:  # This could be a seperate file or inside the main.t
 terraform {
   backend "s3" {
     bucket         = "your-s3-bucket-name"
+    dynamodb_table = "your-dynamoTable-bucket-name"
     key            = "env.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "terraform-locks"
     encrypt        = true
   }
 }
