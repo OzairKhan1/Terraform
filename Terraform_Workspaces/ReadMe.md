@@ -49,7 +49,7 @@ Each workspace generates its own state file inside the same S3 bucket:
 ```
 .
 ├── backend/
-│   └── main.tf          # Creates S3 bucket + DynamoDB table
+│   └── main.tf         # Creates S3 bucket + DynamoDB table or seperate files for s3.tf and dynamodb.tf
 │
 ├── modules/
 │   └── myModule/        # Reusable infrastructure module
@@ -57,6 +57,7 @@ Each workspace generates its own state file inside the same S3 bucket:
 ├── main.tf              # Root configuration
 ├── variables.tf
 ├── outputs.tf
+├── .tfvars              # .tfvars per environment. 
 ```
 
 ---
@@ -82,7 +83,7 @@ This creates:
 
 ### Step 2 — Configure Backend in Root
 
-In the root configuration:
+In the root configuration:  # This could be a seperate file or inside the main.tf as used in this Project
 
 ```hcl
 terraform {
