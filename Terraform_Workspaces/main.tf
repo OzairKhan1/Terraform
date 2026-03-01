@@ -20,7 +20,7 @@ terraform {
 }
 
 module "myModule" {
-  source = "git::https://github.com/OzairKhan1/Terraform.git//MyTerrafromModule/GenModule?ref=dev"
+  source = "git::https://github.com/OzairKhan1/Terraform.git//MyTerrafromModule/GenModule?ref=main"
   environment  = var.environment
   project_name = var.project_name
   path_to_public_key = var.path_to_public_key
