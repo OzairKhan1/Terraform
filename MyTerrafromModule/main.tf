@@ -1,3 +1,17 @@
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "6.34.0"
+    }
+  }
+}
+
+provider "aws" {
+
+        region = "us-east-1"
+}
+
 module "myModule" {
   source             = "./GenModule"
   path_to_public_key = "modKey.pub"
@@ -14,3 +28,4 @@ module "myModule" {
   s3_name = "via-terraform-state-bucket-2026"
   dynamodb_name = "my-terraform-state-dynameoDb-2026"
 }
+
