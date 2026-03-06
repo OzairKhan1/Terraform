@@ -26,6 +26,7 @@ module "myModule" {
   source = "git::https://github.com/OzairKhan1/Terraform.git//MyTerrafromModule/GenModule?ref=dev"
   environment  = var.environment
   project_name = var.project_name
+  role         = var.role
   path_to_public_key = var.path_to_public_key
   ec2_type           = var.ec2_type
   block_storage      = var.block_storage
@@ -38,5 +39,6 @@ module "myModule" {
     ManagedBy   = "Terraform"
   }
 }
+
 
 
