@@ -49,3 +49,8 @@ variable "project_name" {
   description = "Project name for resource naming"
   type        = string
 }
+
+variable "role" {
+  description = "Role (db,webSever)"
+  type        = string
+}
