@@ -10,7 +10,22 @@ ami = "ami-123456"
 
 AMIs change frequently, so Terraform provides **data sources** to fetch them dynamically.
 
----
+---  
+Here is the Table for Choosing the Owner  
+
+## Common AWS AMI Owner IDs
+| Operating System / Vendor | Owner ID       | Notes / Usage |
+|---------------------------|---------------|---------------|
+| Ubuntu                    | 099720109477  | Canonical official AMIs |
+| Amazon Linux 2            | 137112412989  | AWS-provided Amazon Linux 2 |
+| Amazon Linux 2023         | 137112412989  | AWS-provided Amazon Linux 2023 |
+| RHEL                      | 309956199498  | Red Hat Enterprise Linux official |
+| SUSE Linux                | 013907871322  | SUSE Linux Enterprise Server |
+| Windows Server            | 801119661308  | Microsoft official Windows AMIs |
+| Debian                    | 136693071363  | Official Debian AMIs |
+| CentOS                    | 125523088429  | Official CentOS AMIs |
+| Fedora                    | 125523088429  | Official Fedora AMIs |
+
 
 # 1. Basic AMI Lookup Pattern
 
