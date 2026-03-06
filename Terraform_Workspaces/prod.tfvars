@@ -1,5 +1,6 @@
 environment  = "prod"
 project_name = "CBSI-PROJECT"
+role = "dev-db"
 path_to_public_key = "/home/ubuntu/terraform/Terraform_WorkSpaces/prodKey.pub"
 ec2_type           = "t2.micro"
 block_storage      = 12
