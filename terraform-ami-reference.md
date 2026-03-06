@@ -16,6 +16,7 @@ AMIs change frequently, so Terraform provides **data sources** to fetch them dyn
 
 ```hcl
 data "aws_ami" "ubuntu" {
+ # where ubuntu is user define name 
   most_recent = true
   owners      = ["099720109477"] # Canonical (Ubuntu)
 
