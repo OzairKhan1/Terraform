@@ -7,6 +7,5 @@ block_storage      = 12
 allowed_ports      = [22, 80]
 count_number       = 1
  tags = {
-    Name           = "Prod-Instance"
-    ManagedBy   = "Terraform"
+
  }
