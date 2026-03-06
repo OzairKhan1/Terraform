@@ -50,5 +50,9 @@ variable "project_name" {
   type        = string
 }
 
+variable "role" {
+  description = "Role (db,webSever)"
+  type        = string
+}
 
 
