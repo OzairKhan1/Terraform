@@ -8,7 +8,6 @@ locals {
   default_tags = {
     Project     = var.project_name
     Environment = var.environment
-    Module      = "GenModule"
     ManagedBy   = "Terraform"
     Owner       = "DevOps"
     CreatedAt   = timestamp()
@@ -98,3 +97,4 @@ resource "aws_instance" "modInstance" {
               echo "<h1>${var.project_name} - ${var.environment} 🚀</h1>" > /var/www/html/index.html
               EOF
 }
+
