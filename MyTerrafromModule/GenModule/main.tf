@@ -8,6 +8,7 @@ locals {
   default_tags = {
     Project     = var.project_name
     Environment = var.environment
+    Role = "WebServer"
     ManagedBy   = "Terraform"
     Owner       = "DevOps"
     CreatedAt   = timestamp()
@@ -36,7 +37,7 @@ resource "aws_default_vpc" "modVpc" {
 # Security Group
 # =========================
 resource "aws_security_group" "modSg" {
-  name   = "${local.name_prefix}-web-sg"
+  name   = "${local.name_prefix}-sg"
   vpc_id = aws_default_vpc.modVpc.id
 
   dynamic "ingress" {
@@ -83,7 +84,6 @@ resource "aws_instance" "modInstance" {
     local.final_tags,
     {
       Name = "${local.name_prefix}-instance-${count.index + 1}"
-      Role = "WebServer"
     }
   )
 
@@ -97,4 +97,5 @@ resource "aws_instance" "modInstance" {
               echo "<h1>${var.project_name} - ${var.environment} 🚀</h1>" > /var/www/html/index.html
               EOF
 }
+
 
