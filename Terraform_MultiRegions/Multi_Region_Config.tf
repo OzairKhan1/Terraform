@@ -11,7 +11,7 @@ terraform {
 # Providers for each region
 # -------------------------
 provider "aws" {
-  alias  = "us-east-1"
+  alias  = "us-east-1"      # alias is used as identifier for each Regions
   region = "us-east-1"
 }
 
@@ -72,7 +72,7 @@ resource "aws_instance" "Region_1_Instance" {
 
 resource "aws_instance" "Region_2_Instance" {
   ami           = data.aws_ami.ubuntu_us_east_2.id
-  instance_type = "t3.micro"
+  instance_type = "t2.micro"
   provider      = aws.us-east-2
 
   tags = {
